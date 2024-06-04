@@ -1,0 +1,56 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+import HTML from "../icons/HTML.astro"
+import CSS from "../icons/CSS.astro"
+import JavaScript from "../icons/JavaScript.astro"
+import React from "../icons/React.astro";
+const TAGS = {
+    HTML: {
+        name: "HTML",
+        icon: HTML,
+    }, 
+    CSS: {
+        name: "CSS",
+        icon: CSS,
+    },
+    JavaScript:{
+        name: "JavaScript",
+        icon: JavaScript,
+    },
+    React:{
+        name: "React",
+        icon: React,
+    }
+}
+
+const EXPERIENCE = [
+    {
+        date: "Febrero 2024",
+        title: "Tienda E-Commerce",
+        description:
+            `Pagina Web de indumentaria con e-commerce. Pagina diseñada para Raul. Pagina diseñada con las siguientes tecnologias:`,
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React],
+        img: "../../public/ecommerce.webp",
+        link: "https://github.com/LucasIriarte9/9Forty"
+    },
+    {
+        date: "Diciembre 2023",
+        title: "Velas",
+        description: "Pagina Web de velas. Pagina diseñada para Gladys. Pagina diseñada con las siguientes tecnologias:",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript],
+        img: "../../public/Velas2.webp",
+        link: "https://github.com/LucasIriarte9/Velas",
+        page: "https://lucasiriarte9.github.io/Velas/"
+    },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        EXPERIENCE.map((experiencie ) => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experiencie} />
+            </li>
+        ))
+    }
+</ol>

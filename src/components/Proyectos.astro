@@ -1,0 +1,63 @@
+---
+import HTML from "../icons/HTML.astro"
+import CSS from "../icons/CSS.astro"
+import JavaScript from "../icons/JavaScript.astro"
+import React from "../icons/React.astro"
+const TAGS = {
+    HTML: {
+        name: "HTML",
+        icon: HTML,
+    }, 
+    CSS: {
+        name: "CSS",
+        icon: CSS,
+    },
+    JavaScript:{
+        name: "JavaScript",
+        icon: JavaScript,
+    },
+    React:{
+        name: "React",
+        icon: React,
+    }
+}
+const PROJECTS= [
+    {
+        title: "Ta Te TI",
+        description:"Responsable de la creacion de la pagina Web del juego ta te ti. Pagina diseñada con React, JavaScript, HTML y Tailwind. Pagina diseñada para Lucas",
+        link: "#",
+        github:"https://github.com/LucasIriarte9/Tateti",
+        img: "../../public/tateti.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React],
+    },
+    {
+        title: "Buscador de Peliculas",
+        description:"Responsable de la creacion de la pagina Web Buscador de pelis. Pagina diseñada con React, JavaScript, HTML y Tailwind. Pagina diseñada para Lucas",
+        link: "#",
+        github:"https://github.com/LucasIriarte9/Tateti",
+        img: "../../public/buscadorpeli.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React],
+    },
+
+]
+---
+
+{
+    PROJECTS.map(({title , description, tags, img}) =>(
+        <article class="mb-8">
+            <h3 class="text-2xl font-semibold text-blue-500/90 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row">
+                {tags.map((tag)=>(
+                    <li>
+                        <span class="flex gap-x-2 rounded-full py-2 px-2">
+                            <tag.icon class="size-6"/>
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img class="rounded shadow-2xl" src={img} alt={title}>
+        </article>
+    ))
+}
