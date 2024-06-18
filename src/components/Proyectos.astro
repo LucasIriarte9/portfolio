@@ -3,6 +3,8 @@ import HTML from "../icons/HTML.astro"
 import CSS from "../icons/CSS.astro"
 import JavaScript from "../icons/JavaScript.astro"
 import React from "../icons/React.astro"
+import Firebase from "../icons/firebase.astro"
+import Tailwind from "../icons/tailwind.astro"
 const TAGS = {
     HTML: {
         name: "HTML",
@@ -19,35 +21,59 @@ const TAGS = {
     React:{
         name: "React",
         icon: React,
+    },
+    Firebase:{
+        name:"Firebase",
+        icon: Firebase,
+    },
+    Tailwind:{
+        name:"Tailwind",
+        icon: Tailwind,
     }
 }
 const PROJECTS= [
     {
+        title: "Personal Trainer",
+        description:`Pagina Web de un personal trainer. Pagina diseñada con las siguientes tecnologias:`,
+        tags: [TAGS.HTML, TAGS.JavaScript, TAGS.React, TAGS.Tailwind],
+        img: "../../public/personal.webp",
+        link: "https://github.com/LucasIriarte9/Personal-Trainer",
+        page: "https://personal-trainer-murex.vercel.app/",
+    },
+    {
+        title: "Tienda E-Commerce",
+        description:`Pagina Web de indumentaria con e-commerce. Pagina diseñada con las siguientes tecnologias:`,
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React, TAGS.Firebase],
+        img: "../../public/ecommerce.webp",
+        link: "https://github.com/LucasIriarte9/9Forty",
+        page: "https://9-forty.vercel.app/",
+    },
+    {
         title: "Ta Te TI",
-        description:"Responsable de la creacion de la pagina Web del juego ta te ti. Pagina diseñada con React, JavaScript, HTML y Tailwind. Pagina diseñada para Lucas",
-        link: "#",
-        github:"https://github.com/LucasIriarte9/Tateti",
+        description:"Responsable de la creacion de la pagina Web del juego ta te ti. Pagina diseñada con React, JavaScript, HTML y Tailwind.",
+        link: "https://github.com/LucasIriarte9/Tateti",
+        tags: [TAGS.HTML, TAGS.Tailwind, TAGS.JavaScript, TAGS.React],
         img: "../../public/tateti.webp",
-        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React],
+        page: "https://tateti-jet.vercel.app/",
     },
     {
         title: "Buscador de Peliculas",
-        description:"Responsable de la creacion de la pagina Web Buscador de pelis. Pagina diseñada con React, JavaScript, HTML y Tailwind. Pagina diseñada para Lucas",
-        link: "#",
-        github:"https://github.com/LucasIriarte9/Tateti",
+        description:"Responsable de la creacion de la pagina Web Buscador de pelis. Pagina diseñada con React, JavaScript, HTML y Tailwind.",
+        link: "https://github.com/LucasIriarte9/BuscaPelis",
         img: "../../public/buscadorpeli.webp",
-        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React],
-    },
+        tags: [TAGS.HTML, TAGS.Tailwind,TAGS.JavaScript, TAGS.React],
+        page: "https://busca-pelis-gules.vercel.app/",
+    }
 
 ]
 ---
 
 {
-    PROJECTS.map(({title , description, tags, img}) =>(
+    PROJECTS.map(({title , description, tags, img, link, page}) =>(
         <article class="mb-8">
             <h3 class="text-2xl font-semibold text-blue-500/90 mb-2">{title}</h3>
             <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-2 flex-row">
+            <ul class="flex gap-x-2 flex-col sm:flex-row">
                 {tags.map((tag)=>(
                     <li>
                         <span class="flex gap-x-2 rounded-full py-2 px-2">
@@ -57,7 +83,59 @@ const PROJECTS= [
                     </li>
                 ))}
             </ul>
-            <img class="rounded shadow-2xl" src={img} alt={title}>
+            <img class="rounded shadow-2xl mb-2" src={img} alt={title}>
+            {
+        link && (
+        <a
+            href={link}
+            target="_blank"
+            class="mx-2 inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-800 hover:text-blue-600 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+        >
+            Codigo{" "}
+            <svg
+                class="w-3 h-3 ms-2 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+            </svg>
+        </a>
+    )
+        }
+    {
+    page && (
+        <a
+            href={page}
+            target="_blank"
+            class=" inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-800 hover:text-blue-600 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+        >
+            Pagina{" "}
+            <svg
+                class="w-3 h-3 ms-2 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+            </svg>
+        </a>
+    )
+    }
         </article>
     ))
 }

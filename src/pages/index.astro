@@ -10,16 +10,19 @@ import SectionContainer from "../components/SectionContainer.astro"
 import Case from "../icons/case.astro";
 import Code from "../icons/code.astro";
 import Proyectos from "../components/Proyectos.astro";
+import Tecnologias from "../components/tecnologias.astro";
+import SobreMi from "../components/sobreMi.astro"
+import Contacto from "../components/contacto.astro";
 ---
 
 <Layout title="Portfolio de Lucas Iriarte."
 	description=" Desarrollador Y Programador Web Font-End. Contratame para desarrollar tu aplicacion web.  ">
 	<main class="px-8">
-		<SectionContainer class="py-44 pb-32">
+		<SectionContainer class="sm:py-44 pb-32 py-20 ">
 			<h1
-				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-8"
+				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-col items-center sm:flex-row gap-x-4 pb-6 lg:pb-8"
 			>
-				Hola, Soy Lucas <div class="flex justify-center items-center">
+				Soy Lucas Iriarte<div class="flex justify-center items-center">
 					<a
 						href="https://www.linkedin.com/in/lucas-iriarte-b409471b8/"
 						target="_blank"
@@ -62,5 +65,10 @@ import Proyectos from "../components/Proyectos.astro";
 				Proyectos</h2>
 			<Proyectos />
 		</SectionContainer>
+
+		<Tecnologias/>
+		<SobreMi/> 
+		<!-- <Contacto /> -->
+
 	</main>
 </Layout>
